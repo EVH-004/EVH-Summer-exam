@@ -1,25 +1,30 @@
 Flag F1 = new Flag (20,30);
 Flag F2 = new Flag (50,35);
-Module M1 = new Module (50,30);
+//Module M1 = new Module (0,0);
+ArrayList <flag> flag;
+int flagWidth = 50;
 
-int unit = 40;
-int count ;
-Module[] mods;
+
+//int unit = 40;
+//int count ;
+//Module[] mods;
 
 void setup()
 {
   size(1080,1080);
   colorMode(RGB);
   frameRate(30);
+  flag = new ArrayList<flag>();
+  flag.add(new flag (width/2, 0, flagWidth));
   int wideCount = width/ unit;
   int highCount = height/ unit;
   count = wideCount * highCount;
-  mods = new Module [count];
+ // mods = new Module [count];
   
   int index = 0;
   for (int y = 0; y < highCount; y++) {
     for (int x = 0; x < wideCount; x++) {
-      mods[index++] = new Module(x*unit, y*unit, unit/2, unit/2, random(0.05, 0.8), unit);
+      //mods[index++] = new Module(x*unit, y*unit, unit/2, unit/2, random(0.05, 0.8), unit);
     }
   }
 
@@ -40,22 +45,22 @@ class Flag {
     
   } 
 } 
-class Module {
-  int xOffset;
-  int yOffset;
-  float x, y;
-  int unit;
-  int xDirection = 1;
-  int yDirection = 1;
-  float speed; 
+//class Module {
+ // int xOffset;
+  //int yOffset;
+ // float x, y;
+ // int unit;
+ // int xDirection = 1;
+ // int yDirection = 1;
+ // float speed; 
   
-    Module(int xOffsetTemp, int yOffsetTemp, int xTemp, int yTemp, float speedTemp, int tempUnit) {
-    xOffset = xOffsetTemp;
-    yOffset = yOffsetTemp;
-    x = xTemp;
-    y = yTemp;
-    speed = speedTemp;
-    unit = tempUnit;
+  //  Module(int xOffsetTemp, int yOffsetTemp, int xTemp, int yTemp, float speedTemp, int tempUnit) {
+    //xOffset = xOffsetTemp;
+    //yOffset = yOffsetTemp;
+    //x = xTemp;
+    //y = yTemp;
+    //speed = speedTemp;
+    //unit = tempUnit;
     }
   void update()
   
@@ -80,10 +85,17 @@ void draw()
 {
   F1.update();
   F2.update();
- for (Module mod : mods) {
-    mod.update();
-    mod.display();
+// for (Module mod : mods) {
+   // mod.update();
+    //mod.display();
+  for (int i = flag.size()-1; i >= 0; i--) {
+    Flag flag = flag.get(i);
+    flag.move();
+    flag.display();
+    if (ball.finished()) {
+    }
   }
+}
   //rectangle part of the flag red yellow green blue dark blue purple
   strokeWeight(0);
   fill(250,10,10);
@@ -133,3 +145,6 @@ void draw()
   circle(350, 150, 50);
   
 }
+void mousePressed(){
+  balls.add(new Ball(mouseX,mouseY, flagWidth));
+  
