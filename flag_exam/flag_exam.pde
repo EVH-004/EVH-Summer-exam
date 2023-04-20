@@ -34,7 +34,26 @@ void draw()
   rect(300,250, 330, 50);
   
   //Triangles Black Brown Pink Yellow 
- // strokeWeight(0);
-  //fill(13,11,13);
- // triangle(120, 300, 232, 80, 344, 300);
+  strokeWeight(0);
+  fill(13,11,13);
+  triangle(450, 150,300 , 0, 300, 300);
+  
+   strokeWeight(0);
+  fill(118,73,0);
+  triangle(420, 150,300 , 0, 300, 300);
+  
+    strokeWeight(0);
+  fill(245,141,214);
+  triangle(390, 150,300 , 0, 300, 300);
+  
+    strokeWeight(0);
+  fill(243,255,111);
+  triangle(360, 150,300 , 0, 300, 300);
+  
+  // purple circle
+  strokeWeight(10);
+  stroke(180, 47, 247);
+  noFill();
+  circle(350, 150, 50);
+  
 }
