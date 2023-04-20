@@ -146,5 +146,6 @@ void draw()
   
 }
 void mousePressed(){
-  balls.add(new Ball(mouseX,mouseY, flagWidth));
+  flag.add(new Flag (mouseX,mouseY, flagWidth));
   
+}
