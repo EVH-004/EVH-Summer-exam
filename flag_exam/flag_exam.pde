@@ -1,13 +1,19 @@
+Flag F1 = new Flag (20,30);
+Flag F2 = new Flag (50,35);
+
 void setup()
 {
   size(1080,1080);
   colorMode(RGB);
+  frameRate(30);
   
 }
 
 void draw()
 
 {
+  F1.update();
+  F2.update();
   //rectangle part of the flag red yellow green blue dark blue purple
   strokeWeight(0);
   fill(250,10,10);
@@ -57,3 +63,17 @@ void draw()
   circle(350, 150, 50);
   
 }
+class Flag {
+   float ypos, speed; 
+  Flag (float y, float s) {  
+    ypos = y; 
+    speed = s; 
+  } 
+  void update() { 
+    ypos += speed; 
+    if (ypos > height) { 
+      ypos = 0; 
+    } 
+    line(0, ypos, width, ypos); 
+  } 
+} 
